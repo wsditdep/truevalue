@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.956);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+
+    img {
+        height: auto;
+        width: 8rem;
+        transform-style: preserve-3d;
+        animation: loaderAnimation 2s ease-in-out infinite;
+    }
+}
+
+@keyframes loaderAnimation {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+
+.spinner-outer-wrapper {
+    .spinner-wrapper {
+        background: white;
+        height: 100vh;
+        padding: 1rem;
+
+        .spinner-accountBalnce {
+            margin-top: 4rem;
+            margin-bottom: -4rem;
+
+            h3 {
+                color: $secondaryColor;
+                text-align: center;
+                font-size: 1.4rem;
+            }
+        }
+
+        #wheel {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            flex-direction: column;
+        }
+
+        .spinn-btns {
+            padding: 0rem 2rem;
+            margin-top: -4rem;
+            p {
+                text-align: center;
+                font-size: 2rem;
+                color: $secondaryColor;
+                margin-bottom: 1rem;
+                font-size: 1.4rem;
+                font-weight: 600;
+            }
+
+            button {
+                padding: 1rem;
+                margin-bottom: 1rem;
+                outline: none;
+                border: none;
+                font-size: 1.2rem;
+                width: 100%;
+                cursor: pointer;
+            }
+        }
+
+        .event_rules {
+            padding: 0rem 2rem;
+
+            h3 {
+                font-size: 1.4rem;
+                margin-bottom: 1rem;
+            }
+
+            ul {
+                li {
+                    font-size: 1.2rem;
+                    margin: 1rem 0;
+                    font-weight: 500;
+                }
+            }
+        }
+
+    }
+}
+
+.d-none {
+    display: none !important;
+}
+
+.fetch-animation-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    height: 10px;
+    width: 130px;
+    --c: no-repeat linear-gradient(#161616 0 0);
+    background: var(--c), var(--c), #c1c1c1;
+    background-size: 60% 100%;
+    animation: l16 3s infinite;
+}
+
+@keyframes l16 {
+    0% {
+        background-position: -150% 0, -150% 0
+    }
+
+    66% {
+        background-position: 250% 0, -150% 0
+    }
+
+    100% {
+        background-position: 250% 0, 250% 0
+    }
+}
+
+/* Remove spinner for Chrome, Safari, Edge, and Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove spinner for Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+
+/* HTML: <div class="loader"></div> */
+.loader-alt {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.1rem;
+    clip-path: inset(0 3ch 0 0);
+    animation: l4 1s steps(4) infinite;
+    margin-top: 1rem;
+}
+
+.loader-alt:before {
+    content: "Loading..."
+}
+
+@keyframes l4 {
+    to {
+        clip-path: inset(0 -1ch 0 0)
+    }
+}
+
+.go2072408551 {
+    max-width: 720px !important;
+}

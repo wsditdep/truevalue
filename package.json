@@ -1,0 +1,36 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.2",
+    "axios": "^1.7.7",
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.2.0",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.5.46",
+    "mongoose": "^8.3.4",
+    "multi-range-slider-react": "^2.0.7",
+    "next": "14.2.3",
+    "next-auth": "^5.0.0-beta.3",
+    "qrcode.react": "^3.1.0",
+    "react": "^18",
+    "react-confetti": "^6.1.0",
+    "react-dom": "^18",
+    "react-hot-toast": "^2.4.1",
+    "react-slick": "^0.30.2",
+    "react-slideshow-image": "^4.3.1",
+    "sharp": "^0.33.3",
+    "slick-carousel": "^1.8.1",
+    "use-debounce": "^10.0.0"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}
