@@ -1,6 +1,6 @@
 import Image from "next/image"
-import img1 from "@/public/assets/welcome/img1.svg"
-import logo from "@/public/assets/logo.svg"
+import img1 from "@/public/assets/welcome/img1.png"
+import logo from "@/public/assets/logo.png"
 import Link from "next/link"
 
 const Welcome = () => {
@@ -28,10 +28,10 @@ const Welcome = () => {
                             />
                         </div>
                         <div className="content">
-                            <h1>Furniture Stores Canberra Marco Furniture Australia</h1>
+                            <h1>True Value Rewards <br /> is<br /> Here For You</h1>
                         </div>
                         <div className="content">
-                            <p>For over 15 years, Marco Furniture has stood as Australia's premier destination for exquisite furniture and home decor selections.</p>
+                            <p>Sign up today to make the most of every visit and experiance the rewards that are crafted just for you!</p>
                         </div>
                         <div className="content">
                             <Link href={"signin"}>

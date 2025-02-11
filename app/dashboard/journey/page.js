@@ -90,72 +90,70 @@ const page = async () => {
           <div className='journey-btn'>
             <ValidateJourney />
           </div>
-
-          <div className='seller-wrapper'>
-            <div className='seller-heading'>
-              <p>Design ideas for every space</p>
-              <p>Our Best Seller</p>
+        </div>
+        <div className='seller-wrapper'>
+          <div className='seller-heading'>
+            <p>Design ideas for every space</p>
+            <p>Our Best Seller</p>
+          </div>
+          <div className="home-appliances-wrapper">
+            <div className="home-appliances">
+              <div className="appliances-img">
+                <Image
+                  src={img2}
+                  alt="icon"
+                  height={100}
+                  width={100}
+                  unoptimized
+                />
+              </div>
+              <div className="appliances-desc">
+                <p>London Extendable TV Unit With Storage in Walnut and Black</p>
+              </div>
             </div>
-            <div className="home-appliances-wrapper">
-              <div className="home-appliances">
-                <div className="appliances-img">
-                  <Image
-                    src={img2}
-                    alt="icon"
-                    height={100}
-                    width={100}
-                    unoptimized
-                  />
-                </div>
-                <div className="appliances-desc">
-                  <p>London Extendable TV Unit With Storage in Walnut and Black</p>
-                </div>
+            <div className="home-appliances">
+              <div className="appliances-img">
+                <Image
+                  src={img3}
+                  alt="icon"
+                  height={100}
+                  width={100}
+                  unoptimized
+                />
               </div>
-              <div className="home-appliances">
-                <div className="appliances-img">
-                  <Image
-                    src={img3}
-                    alt="icon"
-                    height={100}
-                    width={100}
-                    unoptimized
-                  />
-                </div>
-                <div className="appliances-desc">
-                  <p>Casper Extendable Modern TV Stand with Three Solid Wood Drawers</p>
-                </div>
+              <div className="appliances-desc">
+                <p>Casper Extendable Modern TV Stand with Three Solid Wood Drawers</p>
               </div>
-              <div className="home-appliances">
-                <div className="appliances-img">
-                  <Image
-                    src={img4}
-                    alt="icon"
-                    height={100}
-                    width={100}
-                    unoptimized
-                  />
-                </div>
-                <div className="appliances-desc">
-                  <p>Amazon Coffee Table Set Modern Design with Glass Top Side Table (Set of 2)</p>
-                </div>
+            </div>
+            <div className="home-appliances">
+              <div className="appliances-img">
+                <Image
+                  src={img4}
+                  alt="icon"
+                  height={100}
+                  width={100}
+                  unoptimized
+                />
               </div>
-              <div className="home-appliances">
-                <div className="appliances-img">
-                  <Image
-                    src={img5}
-                    alt="icon"
-                    height={100}
-                    width={100}
-                    unoptimized
-                  />
-                </div>
-                <div className="appliances-desc">
-                  <p>Amsterdam Fabric Lounge (compact)</p>
-                </div>
+              <div className="appliances-desc">
+                <p>Amazon Coffee Table Set Modern Design with Glass Top Side Table (Set of 2)</p>
+              </div>
+            </div>
+            <div className="home-appliances">
+              <div className="appliances-img">
+                <Image
+                  src={img5}
+                  alt="icon"
+                  height={100}
+                  width={100}
+                  unoptimized
+                />
+              </div>
+              <div className="appliances-desc">
+                <p>Amsterdam Fabric Lounge (compact)</p>
               </div>
             </div>
           </div>
-
         </div>
       </section >
 

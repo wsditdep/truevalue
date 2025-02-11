@@ -8,7 +8,7 @@ import LiveSupport from '@/components/liveSupport/LiveSupport';
 import favicon from "@/public/favicon.png";
 
 export const metadata = {
-  title: "Welcome - Marco-furniture",
+  title: "Welcome - Truevalue",
   description: "",
   icons: {
     icon: {

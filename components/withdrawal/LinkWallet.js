@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/assets/logo.svg"
+import logo from "@/public/assets/logo.png"
 import icon0 from "@/public/assets/auth/icon0.svg"
 import img1 from "@/public/assets/linkwallet/img1.svg"
 

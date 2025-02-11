@@ -38,7 +38,6 @@ const page = async () => {
                 <div className="dashboard-page-wrapper">
                     <div className="nav-bar-parent">
                         <SidebarLeft />
-
                         <SidebarRight
                             session={JSON.parse(JSON.stringify(authenticatedUser))}
                             allCommission={JSON.parse(JSON.stringify(allCommission))}

@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import React from 'react';
-import icon1 from "@/public/assets/profile/icon1.svg"
+import logo from "@/public/assets/logo.png"
 
 const Loader = () => {
   return (
     <div className="loader-wrapper">
       <Image
-        src={icon1}
+        src={logo}
         alt="logo"
         height={100}
         width={100}

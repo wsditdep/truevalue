@@ -14,9 +14,7 @@
     color: #FFF;
     text-align: center;
     font-size: 1.5rem;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
     letter-spacing: -0.5px;
     cursor: pointer;
 
@@ -68,7 +66,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: white;
+    background: $primaryColor;
     // box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     padding: 3rem 2rem;
 
@@ -101,31 +99,25 @@
             align-items: center;
 
             .profile-icon {
-                cursor: pointer;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                overflow: hidden;
-                background: #f3f3f3;
-                gap: 0.5rem;
-                padding: 0.5rem 1rem;
-                border-radius: 0.4rem;
+                // cursor: pointer;
+                // display: flex;
+                // justify-content: center;
+                // overflow: hidden;
+                // border-radius: 100%;
+                // height: 3rem;
+                // width: 3rem;
+                // box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.301);
 
-                p {
-                    color: #242430;
-                    text-align: center;
-                    font-size: 1.2rem;
-                    font-style: normal;
-                    font-weight: 700;
-                    line-height: normal;
-                    letter-spacing: -0.5px;
-                }
+                width: 3rem;
+                height: 3rem;
 
                 img {
-                    height: auto;
-                    width: 2rem;
+                    height: 3rem;
+                    width: 3rem;
+                    border-radius: 100%;
                     object-fit: cover;
                     object-position: center;
+                    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.301);
                 }
             }
         }
@@ -155,11 +147,9 @@
         width: 100%;
 
         marquee {
-            color: $primaryColor;
+            color: #333333;
             font-size: 1.4rem;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
+            font-weight: 600;
             letter-spacing: -0.25px;
         }
     }
@@ -185,7 +175,6 @@
                 color: rgba(0, 0, 0, 0.64);
                 text-align: center;
                 font-size: 1.2rem;
-                font-style: normal;
                 font-weight: 400;
                 line-height: 118%;
                 border-bottom: solid 0.30rem #F6F6F6;
@@ -231,8 +220,8 @@
             gap: 0.3rem;
 
             &:hover {
-                background: #333333;
-                border: 1px solid $secondaryColor;
+                background: #C8102E;
+                border: 1px solid #C8102E;
 
                 h3 {
                     color: white !important;
@@ -242,10 +231,8 @@
             h3 {
                 font-size: 1.3rem;
                 font-weight: 400;
-                color: rgba(36, 36, 48, 0.50);
-                font-style: normal;
+                color: #333333;
                 font-weight: 700;
-                line-height: normal;
             }
         }
     }
@@ -259,16 +246,13 @@
     h3 {
         color: #242430;
         font-size: 1.8rem;
-        font-style: normal;
         font-weight: 500;
-        line-height: normal;
         letter-spacing: -0.25px;
     }
 
     input {
         color: #333333;
         font-size: 1.8rem;
-        font-style: normal;
         font-weight: 600;
         line-height: 0%;
         width: 100%;
@@ -308,7 +292,6 @@
             p {
                 color: #374151;
                 font-size: 1.8rem;
-                font-style: normal;
                 font-weight: 300;
                 line-height: 15px;
             }
@@ -324,22 +307,17 @@
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 font-size: 1.6rem;
-                font-style: normal;
                 font-weight: 500;
-                line-height: normal;
 
                 &:first-child {
                     color: #242430;
                     font-size: 1.6rem;
-                    font-style: normal;
                     font-weight: 600;
-                    line-height: normal;
                 }
 
                 &:nth-child(4) {
-                    color: #BA4444;
+                    color: #C8102E;
                     font-size: 1.6rem;
-                    font-style: normal;
                     font-weight: 700;
                     line-height: 100%;
                     border-radius: 4px;
@@ -365,17 +343,18 @@
             img {
                 height: auto;
                 width: 100%;
+                display: block;
             }
         }
 
         .appliances-desc {
             height: 11.5rem;
             padding: 1rem;
+            background: white;
 
             p {
                 color: #242430;
                 font-size: 1.4rem;
-                font-style: normal;
                 font-weight: 400;
                 line-height: 140%;
             }
@@ -409,17 +388,15 @@
                         padding: 0.3rem 0rem;
 
                         &:first-child {
-                            color: #333;
+                            color: white;
                             font-size: 1.6rem;
-                            font-style: normal;
                             font-weight: 600;
                             line-height: 20px;
                         }
 
                         &:last-child {
-                            color: #525050;
+                            color: #CDEBFF;
                             font-size: 0.8rem;
-                            font-style: normal;
                             font-weight: 400;
                             line-height: 15px;
                             letter-spacing: 0.4px;
@@ -429,7 +406,7 @@
                 }
 
                 i {
-                    color: #545454;
+                    color: white;
                     font-size: 1.3rem;
                     cursor: pointer;
                 }
@@ -440,7 +417,7 @@
     .divider {
         height: 2.5px;
         border-radius: 3px;
-        background: #e0e0e0;
+        background: #8B9399;
     }
 }
 
@@ -452,6 +429,8 @@
 
 .welcome-page-section {
     .welcome-page-wrapper {
+        height: 100vh;
+        background: $primaryColor;
 
         .welcome-contents {
             .welcome-img {
@@ -467,7 +446,7 @@
             .welcome-introductions {
                 padding: 2rem 3rem;
                 border-radius: 2rem 2rem 0rem 0rem;
-                background: white;
+                background: $primaryColor;
                 position: absolute;
                 top: 65%;
                 left: 50%;
@@ -476,6 +455,9 @@
 
                 .content {
                     padding: 0.5rem 0rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
 
                     img {
                         height: auto;
@@ -483,19 +465,27 @@
                     }
 
                     h1 {
-                        color: #242430;
+                        color: white;
                         font-size: 2rem;
-                        font-style: normal;
                         font-weight: 600;
                         line-height: 120%;
+                        text-align: center;
                     }
 
                     p {
-                        color: rgba(36, 36, 48, 0.50);
+                        color: white;
                         font-size: 1.3rem;
-                        font-style: normal;
                         font-weight: 400;
                         line-height: 140%;
+                        text-align: center;
+                    }
+
+                    a {
+                        width: 100%;
+
+                        button {
+                            background: #C8102E;
+                        }
                     }
                 }
             }
@@ -565,9 +555,7 @@
                     align-self: stretch;
                     color: #333333;
                     font-size: 2.8rem;
-                    font-style: normal;
                     font-weight: 600;
-                    line-height: normal;
                     letter-spacing: -0.165px;
                     padding: 1rem 0rem;
                 }
@@ -575,9 +563,7 @@
                 p {
                     color: rgba(36, 36, 48, 0.50);
                     font-size: 1.8rem;
-                    font-style: normal;
                     font-weight: 400;
-                    line-height: normal;
                     letter-spacing: -0.165px;
 
                     // a {
@@ -602,14 +588,13 @@
                             color: #242430;
                             text-align: center;
                             font-size: 1.3rem;
-                            font-style: normal;
                             font-weight: 400;
                             line-height: 118%;
                         }
                     }
 
                     .active {
-                        background: #000;
+                        background: $primaryBtnColor;
 
                         p {
                             color: #FFF;
@@ -631,9 +616,7 @@
             p {
                 color: #242430;
                 font-size: 1.6rem;
-                font-style: normal;
                 font-weight: 500;
-                line-height: normal;
                 letter-spacing: -0.25px;
                 padding: 0rem 0.2rem;
                 padding-bottom: 0.5rem;
@@ -642,7 +625,6 @@
             input {
                 color: rgba(36, 36, 48, 0.50);
                 font-size: 1.5rem;
-                font-style: normal;
                 font-weight: 400;
                 line-height: 0%;
                 width: 100%;
@@ -681,15 +663,13 @@
 
                 a {
                     p {
-                        color: #4D4D4D;
+                        color: #1F6FB5;
                         font-size: 1.5rem;
-                        font-style: normal;
                         font-weight: 600;
-                        line-height: normal;
                     }
 
                     .color {
-                        color: #BA4444;
+                        color: #C8102E;
                     }
                 }
             }
@@ -752,13 +732,13 @@
         }
 
         input:checked+.radio-custom {
-            background-color: #BA4444;
-            border-color: #BA4444;
+            background-color: #C8102E;
+            border-color: #C8102E;
         }
     }
 
     .checked {
-        color: #BA4444;
+        color: #C8102E;
         font-weight: 600;
     }
 }
@@ -787,9 +767,7 @@
                     left: 0;
                     color: #fff;
                     font-size: 2.2rem;
-                    font-style: normal;
                     font-weight: 600;
-                    line-height: normal;
                     letter-spacing: -0.25px;
                     text-transform: uppercase;
                     padding: 3rem 3rem;
@@ -812,7 +790,6 @@
                         color: #242430;
                         text-align: center;
                         font-size: 2.2rem;
-                        font-style: normal;
                         font-weight: 500;
                         line-height: 120%;
                     }
@@ -841,7 +818,6 @@
                                 padding: 1.5rem;
                                 color: #FFF;
                                 font-size: 1.5rem;
-                                font-style: normal;
                                 font-weight: 500;
                                 line-height: 140%;
                             }
@@ -867,9 +843,7 @@
                                 color: #242430;
                                 text-align: center;
                                 font-size: 1.3rem;
-                                font-style: normal;
                                 font-weight: 500;
-                                line-height: normal;
                                 letter-spacing: -0.5px;
                             }
                         }
@@ -914,7 +888,7 @@
     .sidebar-inner-wrapper {
         width: 80%;
         height: 100vh;
-        background: white;
+        background: $primaryColor;
         position: absolute;
         right: 100%;
         padding: 4rem 2rem 1.6rem 2rem;
@@ -931,7 +905,7 @@
             }
 
             i {
-                color: $primaryColor;
+                color: white;
                 font-size: 2rem;
                 cursor: pointer;
             }
@@ -952,7 +926,7 @@
                     margin: 1rem 0rem;
 
                     &:hover {
-                        background: #00000013;
+                        background: #ffffff2d;
                     }
 
                     img {
@@ -961,9 +935,8 @@
                     }
 
                     p {
-                        color: rgba(36, 36, 48, 0.50);
+                        color: white;
                         font-size: 1.4rem;
-                        font-style: normal;
                         font-weight: 500;
                         line-height: 20px;
                         letter-spacing: -0.28px;
@@ -991,7 +964,7 @@
                 &:first-child {
                     .list {
                         &:first-child {
-                            background: $primaryBtnColor;
+                            background: #C8102E;
 
                             p {
                                 color: #FFF;
@@ -1063,24 +1036,17 @@
     .sidebar-inner-wrapper {
         width: 80%;
         height: 100%;
-        background: white;
+        background: $primaryColor;
         position: absolute;
         right: 100%;
         padding: 4rem 2rem 1.6rem 2rem;
 
         .sidebar-close-btn {
             display: flex;
-            justify-content: space-between;
-
-            .sidebar-left-logo {
-                img {
-                    height: auto;
-                    width: 8rem;
-                }
-            }
+            justify-content: flex-end;
 
             i {
-                color: $primaryColor;
+                color: white;
                 font-size: 2rem;
                 cursor: pointer;
             }
@@ -1098,9 +1064,8 @@
                     padding: 1rem 1.5rem;
 
                     p {
-                        color: rgba(36, 36, 48, 0.50);
+                        color: #8B9399;
                         font-size: 1.2rem;
-                        font-style: normal;
                         font-weight: 500;
                         line-height: 12px;
                         letter-spacing: 0.4px;
@@ -1122,9 +1087,8 @@
                         }
 
                         p {
-                            color: #858585;
+                            color: white;
                             font-size: 1.4rem;
-                            font-style: normal;
                             font-weight: 400;
                             line-height: 20px;
                             letter-spacing: -0.28px;
@@ -1135,77 +1099,81 @@
                 .divider {
                     height: 2.5px;
                     border-radius: 3px;
-                    background: #e0e0e0;
+                    background: #8B9399;
                     margin: 1rem 0rem;
                 }
 
                 .user-info-wrapper {
-                    // .divider {
-                    //     height: 3px;
-                    //     border-radius: 3px;
-                    //     background: #e0e0e0;
-                    // }
+
 
                     .user-info-parent {
-                        display: flex;
-                        justify-content: flex-start;
-                        align-items: center;
-                        padding: 1.3rem 0;
                         position: absolute;
                         bottom: 0;
                         width: 100%;
 
-                        .user-img {
-                            display: flex;
-                            align-items: center;
-                            margin-right: 1.3rem;
-
-                            .img-bg {
-                                width: 3.2rem;
-                                height: 3.2rem;
-
-                                img {
-                                    height: 3.2rem;
-                                    width: 3.2rem;
-                                    border-radius: 100%;
-                                    object-fit: cover;
-                                    object-position: center;
-                                    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.301);
-                                }
-                            }
+                        .divider {
+                            height: 2.5px;
+                            border-radius: 3px;
+                            background: #8B9399;
                         }
 
-                        .user-info {
+                        .user-info-child {
                             display: flex;
-                            justify-content: space-between;
-                            flex-direction: column;
-                            align-items: flex-start;
-                            width: 100%;
+                            justify-content: flex-start;
+                            align-items: center;
+                            padding: 0.5rem 1rem;
 
-                            p {
-                                &:first-child {
-                                    color: #374151;
-                                    font-size: 1.45rem;
-                                    font-weight: 600;
-                                    letter-spacing: -0.14px;
-                                    margin: 0;
+
+                            .user-img {
+                                display: flex;
+                                align-items: center;
+                                margin-right: 1.3rem;
+
+                                .img-bg {
+                                    width: 3.2rem;
+                                    height: 3.2rem;
+
+                                    img {
+                                        height: 3.2rem;
+                                        width: 3.2rem;
+                                        border-radius: 100%;
+                                        object-fit: cover;
+                                        object-position: center;
+                                        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.301);
+                                    }
                                 }
+                            }
 
-                                &:last-child {
-                                    color: #374151;
-                                    font-size: 1.2rem;
-                                    font-weight: 400;
-                                    letter-spacing: -0.12px;
-                                    margin: 0.3rem 0 0 0;
+                            .user-info {
+                                display: flex;
+                                justify-content: space-between;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                width: 100%;
+
+                                p {
+                                    &:first-child {
+                                        color: white;
+                                        font-size: 1.45rem;
+                                        font-weight: 600;
+                                        letter-spacing: -0.14px;
+                                        margin: 0;
+                                    }
+
+                                    &:last-child {
+                                        color: white;
+                                        font-size: 1.2rem;
+                                        font-weight: 300;
+                                        letter-spacing: -0.12px;
+                                        margin: 0.3rem 0 0 0;
+                                    }
                                 }
                             }
                         }
                     }
                 }
-
             }
         }
-
     }
 }
 
@@ -1246,9 +1214,7 @@
                     color: $primaryColor;
                     font-size: 2rem;
                     text-align: center;
-                    font-style: normal;
                     font-weight: 600;
-                    line-height: normal;
                     white-space: nowrap;
                 }
             }
@@ -1307,9 +1273,8 @@
                                 p {
                                     color: #626E79;
                                     font-size: 1.5rem;
-                                    font-style: normal;
                                     font-weight: 600;
-                                    line-height: normal;
+
                                 }
 
                                 h1 {
@@ -1317,11 +1282,10 @@
                                         font-size: 2.4rem;
                                     }
 
-                                    color: #4D4D66;
+                                    color: $primaryColor;
                                     font-size: 3.5rem;
-                                    font-style: normal;
                                     font-weight: 700;
-                                    line-height: normal;
+
                                 }
                             }
 
@@ -1329,9 +1293,7 @@
                                 p {
                                     color: rgba(36, 36, 48, 0.50);
                                     font-size: 1.5rem;
-                                    font-style: normal;
                                     font-weight: 500;
-                                    line-height: normal;
                                     padding: 0.5rem 0rem;
                                 }
 
@@ -1347,11 +1309,9 @@
                                             align-items: center;
                                             gap: 0.3rem;
                                             padding: 1rem 0rem;
-
-                                            color: #000;
+                                            color: $primaryColor;
                                             text-align: center;
                                             font-size: 1.6rem;
-                                            font-style: normal;
                                             font-weight: 700;
                                             line-height: 28px;
 
@@ -1359,7 +1319,6 @@
                                                 color: #333;
                                                 font-size: 1.3rem;
                                                 text-align: center;
-                                                font-style: normal;
                                                 font-weight: 400;
                                                 line-height: 18.5px;
                                             }
@@ -1376,7 +1335,7 @@
                                         border-radius: 5rem;
 
                                         div {
-                                            background: #000;
+                                            background: $primaryColor;
                                             height: 1rem;
                                             border-radius: 5rem;
                                         }
@@ -1410,18 +1369,15 @@
 
                         .balance {
                             p {
-                                color: #242430;
+                                color: #333333;
                                 font-size: 1.25rem;
-                                font-style: normal;
                                 font-weight: 600;
-                                line-height: normal;
                                 padding-bottom: 0.3rem;
                             }
 
                             h3 {
-                                color: #242430;
+                                color: #333333;
                                 font-size: 1.4rem;
-                                font-style: normal;
                                 font-weight: 700;
                                 line-height: 19.818px;
                             }
@@ -1435,33 +1391,29 @@
         .journey-btn {
             padding: 1rem 0rem;
         }
+    }
 
-        .seller-wrapper {
-            padding: 3rem 0rem;
+    .seller-wrapper {
+        padding: 3rem 2rem;
+        background: $primaryColor;
 
-            .seller-heading {
-                padding-bottom: 2rem;
+        .seller-heading {
+            padding-bottom: 2rem;
 
-                p {
-                    color: rgba(36, 36, 48, 0.50);
-                    font-size: 1.5rem;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: normal;
+            p {
+                color: rgba(255, 255, 255, 0.50);
+                font-size: 1.5rem;
+                font-weight: 600;
+                letter-spacing: -0.5px;
+
+                &:last-child {
+                    color: white;
+                    font-size: 1.7rem;
+                    font-weight: 700;
                     letter-spacing: -0.5px;
-
-                    &:last-child {
-                        color: #242430;
-                        font-size: 1.7rem;
-                        font-style: normal;
-                        font-weight: 700;
-                        line-height: normal;
-                        letter-spacing: -0.5px;
-                    }
                 }
             }
         }
-
     }
 }
 
@@ -1513,7 +1465,6 @@
                             color: #5C5C5C;
                             font-size: 1.5rem;
                             font-weight: 500;
-                            line-height: normal;
                             text-transform: capitalize;
                             padding: 0.8rem 0rem;
 
@@ -1528,11 +1479,10 @@
                 .info {
                     &:first-child {
                         h1 {
-                            color: $primaryColor;
+                            color: #333333;
                             font-size: 2rem;
-                            font-style: normal;
                             font-weight: 600;
-                            line-height: 25px;
+                            line-height: 35px;
                             letter-spacing: -0.5px;
                             padding: 1rem 0rem 1.5rem 0rem;
                         }
@@ -1549,9 +1499,8 @@
 
                         .info-child {
                             p {
-                                color: $primaryColor;
+                                color: #333333;
                                 font-size: 1.6rem;
-                                font-style: normal;
                                 font-weight: 600;
                                 line-height: 100%;
                                 letter-spacing: -0.244px;
@@ -1573,7 +1522,7 @@
                                         }
 
                                         .rated {
-                                            color: #BA4444;
+                                            color: #C8102E;
                                         }
                                     }
                                 }
@@ -1587,9 +1536,8 @@
                         .info-child {
                             &:first-child {
                                 p {
-                                    color: $primaryColor;
+                                    color: #333333;
                                     font-size: 1.6rem;
-                                    font-style: normal;
                                     font-weight: 600;
                                     line-height: 100%;
                                     letter-spacing: -0.244px;
@@ -1605,9 +1553,7 @@
                                 p {
                                     color: rgba(36, 36, 48, 0.50);
                                     font-size: 1.3rem;
-                                    font-style: normal;
                                     font-weight: 300;
-                                    line-height: normal;
                                     margin-right: 1.5rem;
                                 }
 
@@ -1628,9 +1574,8 @@
                                     p {
                                         color: $primaryColor;
                                         font-size: 1.3rem;
-                                        font-style: normal;
                                         font-weight: 400;
-                                        line-height: normal;
+                                        line-height: 28px;
                                         padding: 0.5rem 0rem;
                                         cursor: pointer;
                                         transition: background 0.3s ease, padding 0.3s ease, border-radius 0.3s ease;
@@ -1662,7 +1607,6 @@
                     p {
                         color: $primaryColor;
                         font-size: 1.5rem;
-                        font-style: normal;
                         font-weight: 700;
                         line-height: 100%;
                         letter-spacing: -0.244px;
@@ -1720,18 +1664,15 @@
                         &:first-child {
                             color: $primaryColor;
                             font-size: 2.2rem;
-                            font-style: normal;
                             font-weight: 700;
-                            line-height: normal;
                             letter-spacing: -0.5px;
                         }
 
                         &:nth-child(2) {
                             color: #858585;
                             font-size: 1.6rem;
-                            font-style: normal;
                             font-weight: 500;
-                            line-height: normal;
+
 
                         }
                     }
@@ -1746,9 +1687,7 @@
                         color: #333;
                         text-align: center;
                         font-size: 1.3rem;
-                        font-style: normal;
                         font-weight: 500;
-                        line-height: normal;
                         letter-spacing: -0.5px;
                     }
                 }
@@ -1837,7 +1776,6 @@
                         p {
                             color: #333333;
                             font-size: 1.5rem;
-                            font-style: normal;
                             font-weight: 600;
                             line-height: 2.5rem;
                         }
@@ -1858,21 +1796,17 @@
                                 color: #858585;
                                 text-align: start;
                                 font-size: 1.3rem;
-                                font-style: normal;
                                 font-weight: 600;
-                                line-height: normal;
                                 letter-spacing: -0.5px;
                             }
                         }
 
                         &:last-child {
                             p {
-                                color: $primaryBtnColor;
+                                color: #333333;
                                 text-align: end;
                                 font-size: 1.4rem;
-                                font-style: normal;
                                 font-weight: 700;
-                                line-height: normal;
                                 letter-spacing: -0.5px;
                             }
                         }
@@ -1922,11 +1856,9 @@
                     }
 
                     h1 {
-                        color: $primaryColor;
+                        color: #242430;
                         font-size: 1.8rem;
-                        font-style: normal;
                         font-weight: 700;
-                        line-height: normal;
                         letter-spacing: -0.5px;
                         text-align: center;
                     }
@@ -1934,9 +1866,7 @@
                     p {
                         color: #858585;
                         font-size: 1.35rem;
-                        font-style: normal;
                         font-weight: 500;
-                        line-height: normal;
                         text-align: center;
                     }
 
@@ -2066,7 +1996,7 @@
                         color: #242430;
                         text-align: center;
                         font-size: 2rem;
-                        font-style: normal;
+
                         font-weight: 700;
                         line-height: 120%;
                         letter-spacing: -0.5px;
@@ -2078,9 +2008,9 @@
                         color: rgba(36, 36, 48, 0.50);
                         text-align: center;
                         font-size: 1.4rem;
-                        font-style: normal;
+
                         font-weight: 500;
-                        line-height: normal;
+
                     }
                 }
 
@@ -2095,9 +2025,7 @@
                         color: #242430;
                         text-align: center;
                         font-size: 1.15rem;
-                        font-style: normal;
                         font-weight: 500;
-                        line-height: normal;
                         padding-bottom: 1rem;
 
                     }
@@ -2113,9 +2041,7 @@
                         p {
                             color: #333333;
                             font-size: 1.7rem;
-                            font-style: normal;
                             font-weight: 800;
-                            line-height: normal;
                             padding: 0.15rem 1.5rem;
                             width: 100%;
                             height: 100%;
@@ -2180,7 +2106,6 @@
                         &:first-child {
                             color: $primaryColor;
                             font-size: 1.6rem;
-                            font-style: normal;
                             font-weight: 700;
                             line-height: 130%;
                         }
@@ -2188,9 +2113,7 @@
                         &:nth-child(2) {
                             color: var(--Syb, rgba(36, 36, 48, 0.50));
                             font-size: 1.5rem;
-                            font-style: normal;
                             font-weight: 700;
-                            line-height: normal;
                             display: flex;
                             justify-content: center;
                             align-items: center;
@@ -2217,11 +2140,11 @@
                                     height: 0.6rem;
                                     position: relative;
                                     border-radius: 5.163px;
-                                    background: #F7F7F7;
+                                    background: #c8102f13;
 
                                     .progressbar-thumb {
                                         height: 100%;
-                                        background: $primaryBtnColor;
+                                        background: #C8102E;
                                         border-radius: 1rem;
                                         position: absolute;
                                         top: 0;
@@ -2231,7 +2154,7 @@
                                         justify-content: flex-end;
 
                                         div {
-                                            background: $primaryBtnColor;
+                                            background: #C8102E;
                                             color: white;
                                             padding: 0.1rem 0.6rem;
                                             font-size: 0.9rem;
@@ -2767,11 +2690,11 @@
     }
 
     .history-filter ul li button {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .history-filter ul li .history-active {
-        font-size: 1.1rem !important;
+        font-size: 1rem !important;
     }
 
     .history-section .history-section-wrapper .history-parent .history-child:first-child .product-img-container button {
@@ -2935,10 +2858,6 @@
 
     .nav-bar-parent .nav-bar-child:last-child .profile-icon p {
         font-size: 1rem;
-    }
-
-    .nav-bar-parent .nav-bar-child:last-child .profile-icon img {
-        width: 1.5rem;
     }
 
     .journey-section .journey-wrapper .journey-info-wrapper .journey-info-parent:first-child .journey-info-child .info:first-child p {

@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import Link from 'next/link';
-import logo1 from "@/public/assets/logo.svg"
-import logo2 from "@/public/assets/logo.svg"
+import logo1 from "@/public/assets/logo.png"
+import logo2 from "@/public/assets/logo.png"
 import navicon from "@/public/assets/sidebarLeft/navicon.png"
 import icon1 from "@/public/assets/sidebarLeft/icon1.svg"
 import icon2 from "@/public/assets/sidebarLeft/icon2.svg"

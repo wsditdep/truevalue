@@ -8,7 +8,7 @@ import { useState } from "react";
 import SignUpSuccessModal from "../successModal/SignUpSuccessModal";
 import SignUpFailModal from "../successModal/SignUpFailModal";
 import Image from "next/image";
-import logo from "@/public/assets/logo.svg"
+import logo from "@/public/assets/logo.png"
 import icon0 from "@/public/assets/auth/icon0.svg"
 import icon1 from "@/public/assets/auth/icon1.png"
 import icon2 from "@/public/assets/auth/icon2.png"

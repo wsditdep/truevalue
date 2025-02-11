@@ -30,28 +30,28 @@ function Submit() {
 
 const SubmitJourney = ({ authUser }) => {
 
-    // const [isUpSideDouwnIcon, setIsUpSideDouwnIcon,] = useState(false);
+    const [isUpSideDouwnIcon, setIsUpSideDouwnIcon,] = useState(false);
 
-    // const reviews = [
-    //     { id: 1, data: "I recommend for everyone to play this game you will love it 😍" },
-    //     { id: 2, data: "This game was truly amazing, very detailed in almost every aspect." },
-    //     { id: 3, data: "This game is the best game of all time. I can say that the graphics still hold up." },
-    //     { id: 4, data: "A great, classic game that started a great franchise. It was truly an amazing game to play and experience in the shoes of my favorite protagonist of all time." },
-    //     { id: 5, data: "Brilliant, just brilliant!" },
-    //     { id: 6, data: "I really gotta say. Dynamites come in small packages. And this is totally it😁." },
-    //     { id: 7, data: "It’s got the great storyline, it’s got the quality resolution and very detail-oriented graphics." },
-    //     { id: 8, data: "Love the gameplay, story, graphics everything!" },
-    //     { id: 9, data: "STUNNING GAME - it is definitely what I expected after so long time of development and huge advertising." },
-    //     { id: 10, data: "I give it five stars, because I see it on YouTube and other platforms but haven't played the game but it seems really cool. :))" },
-    //     { id: 11, data: "Highly recommended. Have fun!" },
-    //     { id: 12, data: "Been playing this with my daughter since day of release whenever she visits on weekends and it is seriously addictive and very amusing to play!" },
-    //     { id: 13, data: "Amazingly fun and hilarious game for family and friends. One of the best I have played in a long time." },
-    //     { id: 14, data: "An ABSOLUTE ASTONISHING AND GORGEOUS GAME!" },
-    //     { id: 15, data: "This game is being review bombed I’m not sure why but trust me it’s worth your time." },
-    //     { id: 16, data: "This game probably changed my life. It was one of the first video games I've ever played. Do play it. This has to be my favorite game of all time, thank you." },
-    //     { id: 17, data: "This game is so amazing! It reached beyond my expectations. It’s like they added all the genres!" },
-    //     { id: 18, data: "My favorite game of all time. It has great characters, an amazing story, and has some unexpected character development. The game is hilarious as well! I give this game five stars, and I would definitely recommend it." }
-    // ];
+    const reviews = [
+        { id: 1, data: "I recommend for everyone to play this game you will love it 😍" },
+        { id: 2, data: "This game was truly amazing, very detailed in almost every aspect." },
+        { id: 3, data: "This game is the best game of all time. I can say that the graphics still hold up." },
+        { id: 4, data: "A great, classic game that started a great franchise. It was truly an amazing game to play and experience in the shoes of my favorite protagonist of all time." },
+        { id: 5, data: "Brilliant, just brilliant!" },
+        { id: 6, data: "I really gotta say. Dynamites come in small packages. And this is totally it😁." },
+        { id: 7, data: "It’s got the great storyline, it’s got the quality resolution and very detail-oriented graphics." },
+        { id: 8, data: "Love the gameplay, story, graphics everything!" },
+        { id: 9, data: "STUNNING GAME - it is definitely what I expected after so long time of development and huge advertising." },
+        { id: 10, data: "I give it five stars, because I see it on YouTube and other platforms but haven't played the game but it seems really cool. :))" },
+        { id: 11, data: "Highly recommended. Have fun!" },
+        { id: 12, data: "Been playing this with my daughter since day of release whenever she visits on weekends and it is seriously addictive and very amusing to play!" },
+        { id: 13, data: "Amazingly fun and hilarious game for family and friends. One of the best I have played in a long time." },
+        { id: 14, data: "An ABSOLUTE ASTONISHING AND GORGEOUS GAME!" },
+        { id: 15, data: "This game is being review bombed I’m not sure why but trust me it’s worth your time." },
+        { id: 16, data: "This game probably changed my life. It was one of the first video games I've ever played. Do play it. This has to be my favorite game of all time, thank you." },
+        { id: 17, data: "This game is so amazing! It reached beyond my expectations. It’s like they added all the genres!" },
+        { id: 18, data: "My favorite game of all time. It has great characters, an amazing story, and has some unexpected character development. The game is hilarious as well! I give this game five stars, and I would definitely recommend it." }
+    ];
 
 
     const [isCommand, setIsCommand] = useState("Please select an option to comment");
@@ -240,7 +240,7 @@ const SubmitJourney = ({ authUser }) => {
                             </div>
 
                             <div className='divider'></div>
-                            {/* <div className='info'>
+                            <div className='info'>
                                 <div className='info-child'>
                                     <p>Rating</p>
                                 </div>
@@ -255,9 +255,9 @@ const SubmitJourney = ({ authUser }) => {
                                         </ul>
                                     </div>
                                 </div>
-                            </div> */}
-                            {/* <div className='divider'></div> */}
-                            {/* <div className='info'>
+                            </div>
+                            <div className='divider'></div>
+                            <div className='info'>
                                 <div className='info-child'>
                                     <p>Comment</p>
 
@@ -292,7 +292,7 @@ const SubmitJourney = ({ authUser }) => {
                                             </>
                                     }
                                 </div>
-                            </div> */}
+                            </div>
                             <div className='info'>
                                 <form action={handleForm}>
                                     {

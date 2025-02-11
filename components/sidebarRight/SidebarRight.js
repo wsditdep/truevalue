@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import ConfirmModal from '../successModal/ConfirmModal';
 
-import human from "@/public/assets/sidebarRight/human.svg"
-import logo1 from "@/public/assets/logo.svg"
+import human from "@/public/assets/sidebarRight/human.png"
+import logo1 from "@/public/assets/logo.png"
 import icon0 from "@/public/assets/sidebarRight/icon0.svg"
 import icon1 from "@/public/assets/sidebarRight/icon1.svg"
 import icon2 from "@/public/assets/sidebarRight/icon2.svg"
@@ -51,7 +51,7 @@ const SidebarRight = ({ session, allCommission, userCommission }) => {
         { href: "/dashboard/content/about", src: icon3, alt: "icon", text: "About Us" },
         { href: "/dashboard/content/faq", src: icon4, alt: "icon", text: "FAQs" },
         { href: "/dashboard/content/tc", src: icon5, alt: "icon", text: "Terms and Conditions" },
-        // { href: "/dashboard//content/agent", src: icon6, alt: "icon", text: "Agent" },
+        { href: "/dashboard//content/agent", src: icon6, alt: "icon", text: "Agent" },
         { href: "/dashboard/membership", src: icon7, alt: "icon", text: "Membership Upgrade" },
     ];
 
@@ -68,9 +68,8 @@ const SidebarRight = ({ session, allCommission, userCommission }) => {
             }
             <div className="nav-bar-child">
                 <div className="profile-icon" onClick={() => setIsRightNav(true)}>
-                    <p>Personal</p>
                     <Image
-                        src={human}
+                        src={session?.url === null ? human : session?.url}
                         alt="icon"
                         height={100}
                         width={100}
@@ -87,15 +86,6 @@ const SidebarRight = ({ session, allCommission, userCommission }) => {
                             <div className="sidebar-right-weapper">
                                 <div className={isRightNav ? "sidebar-inner-wrapper rightVal" : "sidebar-inner-wrapper"}>
                                     <div className="sidebar-close-btn">
-                                        <div className='sidebar-left-logo'>
-                                            <Image
-                                                src={logo1}
-                                                alt="logo"
-                                                height={100}
-                                                width={100}
-                                                unoptimized
-                                            />
-                                        </div>
                                         <i onClick={() => setIsRightNav(false)} className="fa fa-times"></i>
                                     </div>
                                     {
@@ -248,26 +238,28 @@ const SidebarRight = ({ session, allCommission, userCommission }) => {
                                                         width={100}
                                                         unoptimized
                                                     />
-                                                    <p>Log out</p>
+                                                    <p>Logout</p>
                                                 </div>
                                             </Link>
                                             <div className='user-info-wrapper'>
-                                                {/* <div className='divider'></div> */}
                                                 <div className='user-info-parent'>
-                                                    <div className='user-img'>
-                                                        <div className='img-bg'>
-                                                            <Image
-                                                                src={session?.url === null ? icon0 : session?.url}
-                                                                alt="icon"
-                                                                height={100}
-                                                                width={100}
-                                                                unoptimized
-                                                            />
+                                                    <div className='divider'></div>
+                                                    <div className='user-info-child'>
+                                                        <div className='user-img'>
+                                                            <div className='img-bg'>
+                                                                <Image
+                                                                    src={session?.url === null ? icon0 : session?.url}
+                                                                    alt="icon"
+                                                                    height={100}
+                                                                    width={100}
+                                                                    unoptimized
+                                                                />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div className='user-info'>
-                                                        <p>{session?.username}</p>
-                                                        <p>Invitation Code: {session?.invitation_code}</p>
+                                                        <div className='user-info'>
+                                                            <p>{session?.username}</p>
+                                                            <p>Invitation Code: {session?.invitation_code}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

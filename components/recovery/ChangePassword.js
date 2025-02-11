@@ -7,7 +7,7 @@ import { resetPin } from "@/app/actions/user/action";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
-import logo from "@/public/assets/logo.svg"
+import logo from "@/public/assets/logo.png"
 import icon0 from "@/public/assets/auth/icon0.svg"
 import icon1 from "@/public/assets/auth/icon1.png"
 import icon2 from "@/public/assets/auth/icon2.png"
