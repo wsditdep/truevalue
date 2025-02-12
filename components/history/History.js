@@ -1,6 +1,7 @@
 "use client";
 
-import moment from "moment";
+import moment from 'moment';
+import 'moment-timezone';
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Breadcrumb from "../breadcrumb/Breadcrumb";
@@ -67,7 +68,7 @@ const History = ({ data, membership, authUser }) => {
                                 <div className="history-child">
                                     <div className="product-status-date">
                                         <p>Status: <span>{data?.status ?? ""}</span></p>
-                                        <p>{moment(data?.createdAt).format("D MMM YYYY, hh:mm:ss")}</p>
+                                        <p>{moment.tz(data?.createdAt, process.env.NEXT_PUBLIC_TIMWZONE).format('D MMM YYYY, hh:mm:ss')}</p>
                                     </div>
                                     <div className="divider"></div>
                                     <div className="product-img-container">
