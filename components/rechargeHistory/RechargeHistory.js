@@ -1,6 +1,7 @@
 import React from 'react'
 import Breadcrumb from '../breadcrumb/Breadcrumb'
 import moment from 'moment';
+import 'moment-timezone';
 import data_not_found from "@/public/not_found.png";
 import Image from 'next/image';
 
@@ -29,7 +30,7 @@ const RechargeHistory = ({ history, authUser }) => {
                                     <div className='withdraw-info'>
                                         <div className='info'>
                                             <p>Status: {data?.recharge_type ? data.recharge_type.charAt(0).toUpperCase() + data.recharge_type.slice(1).toLowerCase() : ''}</p>
-                                            <p>{moment(data?.createdAt).format("DD MMM YYYY, hh:mm:ss")}</p>
+                                            <p>{moment.tz(data?.createdAt, process.env.NEXT_PUBLIC_TIMWZONE).format('DD MMM YYYY, hh:mm:ss')}</p>
                                             {/* <p>USDC {data?.amount}</p> */}
                                         </div>
                                         <div className='info'>
