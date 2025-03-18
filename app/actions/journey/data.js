@@ -100,8 +100,16 @@ export const fetchProduct = async () => {
                 totalValue = product?.productPrice;
 
                 // creating user journey history
-                product.status = "pending"
-                historyProduct = product;
+
+                if(authenticatedUser?.balance >= product?.productPrice) {
+                    product.status = "pending"
+                    product.isNegative = false
+                    historyProduct = product;
+                } else {
+                    product.status = "pending"
+                    product.isNegative = true
+                    historyProduct = product;
+                }
             }
 
             if (authenticatedUser?.journeyHistory === null) {

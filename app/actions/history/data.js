@@ -1,8 +1,10 @@
 import { auth } from "@/app/auth";
+import { revalidatePath } from "next/cache";
 import { JourneyHistory } from "@/modals/JourneyHistory";
 import { User } from "@/modals/User";
 import { connectToDB } from "@/utils/connection";
 import { Recharge } from "@/modals/Recharge";
+
 
 export const fetchHistory = async () => {
 
@@ -31,6 +33,7 @@ export const fetchHistory = async () => {
         const journey = await JourneyHistory.findById(authenticatedUser?.journeyHistory);
         const history = journey?.JourneyHistory?.reverse();
 
+        revalidatePath("/dashboard/history");
         return history;
 
     } catch (error) {
@@ -62,7 +65,7 @@ export const fetchRechargeHistory = async () => {
             };
         }
 
-        const history = await Recharge.find({
+        const history = await Recharge.find({ 
             username: authenticatedUser?.username,
             recharge_type: "credit"
         });

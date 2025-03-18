@@ -127,14 +127,19 @@ export const submitJourney = async () => {
             const isNext = journeyStageArray[0] - currentJourneyProduct.stage;
 
             if (isNext !== 1) {
-                // calBalance = (authenticatedUser?.froze_amount + authenticatedUser?.ticket_commission) - extraHold;
-                calBalance = authenticatedUser?.froze_amount + authenticatedUser?.ticket_commission;
+
+                if (isPendingProductObject?.isNegative) {
+                    calBalance = authenticatedUser?.froze_amount + authenticatedUser?.ticket_commission;
+                } else {
+                    calBalance = authenticatedUser?.balance + authenticatedUser?.froze_amount + authenticatedUser?.ticket_commission;
+                }
+
                 calFrozeAmount = 0;
                 ticketCommission = 0;
                 isNextJourney = false;
-
-                // const balanceAfterOp = authenticatedUser?.balance + authenticatedUser?.froze_amount;
+                
                 const balanceAfterOp = authenticatedUser?.froze_amount;
+
                 await AccountChange.create({
                     username: authenticatedUser?.username,
                     phone_number: authenticatedUser?.phone_number,
@@ -154,7 +159,7 @@ export const submitJourney = async () => {
             } else {
                 calBalance = authenticatedUser?.balance;
                 calFrozeAmount = authenticatedUser?.froze_amount;
-                ticketCommission = authenticatedUser?.ticket_commission;    
+                ticketCommission = authenticatedUser?.ticket_commission;
                 isNextJourney = true;
             }
 

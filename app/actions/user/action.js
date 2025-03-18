@@ -253,7 +253,6 @@ export const createWallet = async (formData) => {
 }
 
 export const withdrawal = async (formData) => {
-
     const { amount, withdrawal_pin } = Object.fromEntries(formData);
 
     try {
@@ -446,7 +445,7 @@ export const withdrawal = async (formData) => {
             await User.findByIdAndUpdate(authenticatedUser?._id, {
                 balance: calAmount
             });
- 
+
             const afterWithdrawal = authenticatedUser?.balance - Number(amount);
 
             await AccountChange.create({
