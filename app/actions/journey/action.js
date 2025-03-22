@@ -46,12 +46,6 @@ export const submitJourney = async () => {
             type: "danger"
         };
 
-        if (authenticatedUser?.daily_available_order === authenticatedUser?.today_order) return {
-            message: `Destinations completed at current tier level`,
-            status: 502,
-            type: "danger"
-        };
-
         // check journey product
         let journeyProduct;
         let journeyStageArray;
@@ -81,6 +75,14 @@ export const submitJourney = async () => {
 
         let isPendingProductObject = pendingProduct[0];
 
+        if (!isPendingProductObject) {
+            if (authenticatedUser?.today_order >= authenticatedUser?.daily_available_order) return {
+                message: `Destinations completed at current tier level`,
+                status: 502,
+                type: "danger"
+            };
+        }
+
         if (pendingProduct?.length !== 0 && isPendingProductObject && Object.keys(isPendingProductObject).length > 1) {
             const newObj = {
                 ...isPendingProductObject,
@@ -107,7 +109,7 @@ export const submitJourney = async () => {
         const refundAmount = isPendingProductObject?.productPrice;
         const calculateCommission = commissionRate * isPendingProductObject?.productPrice;
         const calculatedRefundAmount = authenticatedUser?.balance + refundAmount;
-        const calculateStage = authenticatedUser?.today_order + 1;
+        // const calculateStage = authenticatedUser?.today_order + 1;
 
         const calculateFinalBalance = calculatedRefundAmount + calculateCommission;
         // const calculateFinalCommission = authenticatedUser?.today_commission + calculateCommission;
@@ -120,6 +122,7 @@ export const submitJourney = async () => {
         let calFrozeAmount;
         let ticketCommission;
         var isNextJourney;
+        let remainCommission = 0;
 
         if (isPendingProductObject?.isJourneyProduct) {
 
@@ -133,28 +136,50 @@ export const submitJourney = async () => {
                 } else {
                     calBalance = authenticatedUser?.balance + authenticatedUser?.froze_amount + authenticatedUser?.ticket_commission;
                 }
+                
+                remainCommission = authenticatedUser?.ticket_commission;
 
                 calFrozeAmount = 0;
                 ticketCommission = 0;
                 isNextJourney = false;
-                
+
                 const balanceAfterOp = authenticatedUser?.froze_amount;
 
-                await AccountChange.create({
-                    username: authenticatedUser?.username,
-                    phone_number: authenticatedUser?.phone_number,
-                    amount: balanceAfterOp,
-                    after_operation: balanceAfterOp,
-                    account_type: "frozeAmount"
-                });
+                // for onhold
+                const journeyHistory = await JourneyHistory.findById(authenticatedUser?.journeyHistory);
+                const collectAllHistory = journeyHistory?.JourneyHistory;
+                const withHoldList = collectAllHistory?.filter(product => product.isHold);
+                const withoutHoldList = collectAllHistory?.filter(product => !product.isHold);
 
-                await AccountChange.create({
-                    username: authenticatedUser?.username,
-                    phone_number: authenticatedUser?.phone_number,
-                    amount: authenticatedUser?.ticket_commission,
-                    after_operation: calBalance,
-                    account_type: "orderCommission"
-                });
+                const updatedWithHoldList = withHoldList.map(product => ({
+                    ...product,
+                    isHold: false
+                }));
+
+                const updateArray = [...withoutHoldList, ...updatedWithHoldList];
+
+                const res = await JourneyHistory.findByIdAndUpdate(authenticatedUser?.journeyHistory, {
+                    JourneyHistory: updateArray
+                }, { new: true });
+
+                if (res) {
+                    await AccountChange.create({
+                        username: authenticatedUser?.username,
+                        phone_number: authenticatedUser?.phone_number,
+                        amount: balanceAfterOp,
+                        after_operation: balanceAfterOp,
+                        account_type: "frozeAmount"
+                    });
+
+                    await AccountChange.create({
+                        username: authenticatedUser?.username,
+                        phone_number: authenticatedUser?.phone_number,
+                        amount: authenticatedUser?.ticket_commission,
+                        after_operation: calBalance,
+                        account_type: "orderCommission"
+                    });
+                }
+
 
             } else {
                 calBalance = authenticatedUser?.balance;
@@ -163,11 +188,13 @@ export const submitJourney = async () => {
                 isNextJourney = true;
             }
 
+            const remainCom = authenticatedUser?.today_commission + remainCommission
             await User.findByIdAndUpdate(authenticatedUser?._id, {
                 balance: calBalance?.toFixed(2),
-                today_order: calculateStage,
+                // today_order: calculateStage,
                 froze_amount: calFrozeAmount,
                 ticket_commission: ticketCommission,
+                today_commission: remainCom?.toFixed(2)
             });
 
             // await AccountChange.create({
@@ -217,7 +244,7 @@ export const submitJourney = async () => {
         } else {
             await User.findByIdAndUpdate(authenticatedUser?._id, {
                 balance: calculateFinalBalance?.toFixed(2),
-                today_order: calculateStage,
+                // today_order: calculateStage,
                 // today_commission: calculateFinalCommission,
             });
 
@@ -322,12 +349,19 @@ export const validateStartJourney = async () => {
         const account_balance_limit = commission?.account_balance_limit;
         const maxStage = commission?.order_quantity;
 
-        if (authenticatedUser?.today_order >= maxStage) {
-            return {
-                message: "Destinations completed at current tier level",
-                status: 200,
-                type: "danger"
-            };
+        const checkPending = await JourneyHistory.findById(authenticatedUser?.journeyHistory);
+
+        const collectAllProducts = checkPending?.JourneyHistory;
+        const isPendingProduct = collectAllProducts?.some(product => product.status === "pending");
+
+        if(!isPendingProduct) {
+            if (authenticatedUser?.today_order >= maxStage) {
+                return {
+                    message: "Destinations completed at current tier level",
+                    status: 200,
+                    type: "danger"
+                };
+            }
         }
 
         // if (authenticatedUser?.journeyHistory === null) {

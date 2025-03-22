@@ -38,27 +38,36 @@ export const fetchProduct = async () => {
             type: "danger"
         };
 
-        if (authenticatedUser?.daily_available_order === authenticatedUser?.today_order) return {
-            message: `Destinations completed at current tier level`,
-            status: 502,
-            type: "danger"
-        };
+        const checkPending = await JourneyHistory.findById(authenticatedUser?.journeyHistory);
 
-        // check journey product
+        const collectAllProducts = checkPending?.JourneyHistory;
+        const isPendingProduct = collectAllProducts?.some(product => product.status === "pending");
+
+        if (!isPendingProduct) {
+            if (authenticatedUser?.today_order >= authenticatedUser?.daily_available_order) return {
+                message: `Destinations completed at current tier level`,
+                status: 502,
+                type: "danger"
+            };
+        }
+
         let journeyProduct;
-        if (authenticatedUser?.journey !== null) {
-            const journey = await Journey.findById(authenticatedUser?.journey);
+        if (!isPendingProduct) {
+            // check journey product
+            if (authenticatedUser?.journey !== null) {
+                const journey = await Journey.findById(authenticatedUser?.journey);
 
-            const userJourney = journey?.journey;
-            const userCurrentStage = authenticatedUser?.today_order + 1;
+                const userJourney = journey?.journey;
+                const userCurrentStage = authenticatedUser?.today_order + 1;
 
-            const stages = userJourney.map(item => Number(item.stage));
+                const stages = userJourney.map(item => Number(item.stage));
 
-            const isJourney = stages.includes(userCurrentStage);
+                const isJourney = stages.includes(userCurrentStage);
 
-            if (isJourney) {
-                const journeyProducts = userJourney?.filter(item => Number(item.stage) === userCurrentStage);
-                journeyProduct = journeyProducts[0];
+                if (isJourney) {
+                    const journeyProducts = userJourney?.filter(item => Number(item.stage) === userCurrentStage);
+                    journeyProduct = journeyProducts[0];
+                }
             }
         }
 
@@ -101,13 +110,15 @@ export const fetchProduct = async () => {
 
                 // creating user journey history
 
-                if(authenticatedUser?.balance >= product?.productPrice) {
-                    product.status = "pending"
-                    product.isNegative = false
+                if (authenticatedUser?.balance >= product?.productPrice) {
+                    product.status = "pending";
+                    product.isNegative = false;
+                    product.isHold = true;
                     historyProduct = product;
                 } else {
-                    product.status = "pending"
-                    product.isNegative = true
+                    product.status = "pending";
+                    product.isNegative = true;
+                    product.isHold = true;
                     historyProduct = product;
                 }
             }
@@ -293,7 +304,8 @@ export const fetchProduct = async () => {
                 // calculateBalance = (authenticatedUser?.balance - product?.productPrice) - deduction;
                 calculateBalance = (authenticatedUser?.balance - product?.productPrice);
                 calculateCommission = product?.productPrice * membership?.ticket_commission;
-                calculatedCommission = authenticatedUser?.today_commission + calculateCommission;
+                // calculatedCommission = authenticatedUser?.today_commission + calculateCommission;
+                calculatedCommission = authenticatedUser?.today_commission;
 
                 let negativeValue;
                 let netFrozeAmount;
@@ -326,7 +338,8 @@ export const fetchProduct = async () => {
                     balance: calculateBalance?.toFixed(2),
                     froze_amount: calFrozeAmount?.toFixed(2),
                     today_commission: calculatedCommission?.toFixed(2),
-                    ticket_commission: (authenticatedUser?.ticket_commission ?? 0) + deduction
+                    ticket_commission: (authenticatedUser?.ticket_commission ?? 0) + deduction,
+                    today_order: authenticatedUser?.today_order + 1
                 });
 
                 await AccountChange.create({
@@ -345,7 +358,8 @@ export const fetchProduct = async () => {
 
                 await User.findByIdAndUpdate(authenticatedUser?._id, {
                     balance: calculateBalance?.toFixed(2),
-                    today_commission: calculatedCommission?.toFixed(2)
+                    today_commission: calculatedCommission?.toFixed(2),
+                    today_order: authenticatedUser?.today_order + 1
                 });
 
                 await AccountChange.create({

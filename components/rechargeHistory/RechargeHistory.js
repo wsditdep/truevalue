@@ -35,7 +35,7 @@ const RechargeHistory = ({ history, authUser }) => {
                                         </div>
                                         <div className='info'>
                                             <p>{data?.username},</p>
-                                            <p>has been crediteds to your account,</p>
+                                            <p>has been credited to your account,</p>
                                             <p>{data?.status ? data.status.charAt(0).toUpperCase() + data.status.slice(1).toLowerCase() : ''}</p>
                                             {/* <p></p> */}
                                             <p>$ {(data?.amount)?.toFixed(2)}</p>                                        </div>
